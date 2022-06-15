@@ -21,8 +21,8 @@
 							<i class="align-middle me-2 fas fa-fw fa-user"></i> <span class="align-middle">Dashboards</span>
 						</a>
 						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
-							<li class="sidebar-item active"><a class="sidebar-link" href="{{url('persona')}}">ingresar</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="dashboard-analytics.html">Analytics</a></li>
+							<li class="sidebar-item active"><a class="sidebar-link" href="{{url('persona')}}">Persona</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{url('equipo')}}">Equipo</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="dashboard-e-commerce.html">E-commerce</a></li>
 						</ul>
 					</li>
