@@ -23,7 +23,7 @@
 						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
 							<li class="sidebar-item active"><a class="sidebar-link" href="{{url('persona')}}">Persona</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="{{url('equipo')}}">Equipo</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="dashboard-e-commerce.html">E-commerce</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{url('ventas')}}">Ventas</a></li>
 						</ul>
 					</li>
 					<li class="sidebar-item">

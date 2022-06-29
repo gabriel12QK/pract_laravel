@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PersonaControler;
 use App\Http\Controllers\equipoP;
 use App\Http\Controllers\equipoBD;
+use App\Http\Controllers\ventasP;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +22,11 @@ Route::get('/', function () {
 });
 Route:: get('persona',[PersonaControler:: class, 'index']);
 Route:: get('equipo',[equipoP:: class, 'index']);
-Route:: post('equipo/post',[equipoBD:: class, 'guardarEquipo']);
+Route:: post('equipo/post',[equipoP:: class, 'guardarEquipo']);
+Route:: get('equipoedit{id}',[equipoBD:: class, 'index']);
+Route:: post('equipo-update{id}',[equipoBD:: class, 'update']);
+Route:: get('ventas',[ventasP:: class, 'principal']);
+Route:: post('ventas/post',[ventasP:: class, 'guardarVentas']);
+Route:: get('ventas-edit{id}',[ventasP:: class, 'editPage']);
+Route:: post('ventas-update{id}',[ventasP:: class, 'update']);
+Route:: delete('ventas-delete{id}',[ventasP:: class, 'delete']);
