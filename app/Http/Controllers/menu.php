@@ -19,6 +19,6 @@ class menu extends Controller
     public function showP()
     {
        
-       //menu.php return view('registro');
+      return view('paginas.person');
     }
 }

@@ -1,7 +1,7 @@
 @extends('layaouts.app')
 @section('header-title')
-Bienvenidos a la pagina principal
+Bienvenidos a la pagina de Usuarios
 @endsection
 @section('content')
-<livewire:persona/>
+
 @endsection

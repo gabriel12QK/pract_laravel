@@ -19,4 +19,3 @@ Route::get('/', function () {
 });
 Route:: get('tipo_usuario',[menu:: class, 'showT']);
 Route:: get('tipo_especialidad',[menu:: class, 'showE']);
-
