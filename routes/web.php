@@ -18,3 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route:: get('tipo_usuario',[menu:: class, 'showT']);
+Route:: get('tipo_especialidad',[menu:: class, 'showE']);
+

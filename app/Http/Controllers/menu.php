@@ -14,7 +14,7 @@ class menu extends Controller
     public function showE()
     {
        
-       //menu.php return view('registro');
+      return view('paginas.especialidad');
     }
     public function showP()
     {

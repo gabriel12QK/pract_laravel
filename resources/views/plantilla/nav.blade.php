@@ -22,7 +22,7 @@
 						</a>
 						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
 							<li class="sidebar-item active"><a class="sidebar-link" href="{{url('tipo_usuario')}}">Tipos de usuario</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="">Equipo</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="{{url('tipo_especialidad')}}">Especialidad</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="">Ventas</a></li>
 						</ul>
 					</li>
