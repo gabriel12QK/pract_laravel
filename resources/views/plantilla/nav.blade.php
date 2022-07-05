@@ -1,5 +1,5 @@
 <nav id="sidebar" class="sidebar">
-			<a class="sidebar-brand" href="index.html">
+			<a class="sidebar-brand" href="{{url('/')}}">
 				<svg>
 					<use xlink:href="#ion-ios-pulse-strong"></use>
 				</svg>
@@ -21,9 +21,9 @@
 							<i class="align-middle me-2 fas fa-fw fa-user"></i> <span class="align-middle">Dashboards</span>
 						</a>
 						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
-							<li class="sidebar-item active"><a class="sidebar-link" href="{{url('persona')}}">Persona</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="{{url('equipo')}}">Equipo</a></li>
-							<li class="sidebar-item"><a class="sidebar-link" href="{{url('ventas')}}">Ventas</a></li>
+							<li class="sidebar-item active"><a class="sidebar-link" href="{{url('tipo_usuario')}}">Tipos de usuario</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="">Equipo</a></li>
+							<li class="sidebar-item"><a class="sidebar-link" href="">Ventas</a></li>
 						</ul>
 					</li>
 					<li class="sidebar-item">

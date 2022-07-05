@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('equipo', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('foto');
-            /* $table->timestamps(); */
+        Schema::create('tipos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('tipo');
+            $table->boolean('estado');
+           // $table->timestamps();
         });
     }
 
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('equipo');
+        Schema::dropIfExists('tipos');
     }
 };

@@ -30,4 +30,6 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-120946860-7');
-</script></head>
+</script>
+@livewireStyles
+</head>

@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ventas', function (Blueprint $table) {
-            $table->id();
-            $table-> string ('nom_pro');
-            $table-> string ('pre_pro');
-            $table-> string ('cant_pro');
+        Schema::create('especialidad', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('id');
+            $table->string('especialidad');
+            $table->boolean('estado');
            // $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ventas');
+        Schema::dropIfExists('especialidad');
     }
 };
