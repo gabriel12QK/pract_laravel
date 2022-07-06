@@ -10,8 +10,11 @@
                         <div class="mb-3">
                             <label>Tipos</label>
                             <select class="form-control select2" data-bs-toggle="select2" wire:model="id_tipo">
-                               @foreach ($t as $item)
-                                   <option>{{$item->tipo}}</option>
+                                <option>Select...</option>
+                                @foreach ($t as $item)
+
+                                   <option value="{{$item->id}}">{{$item->tipo}}</option>
+
                                @endforeach                         
                             </select>
                         </div>
@@ -28,15 +31,18 @@
                             <label>Telefono</label>
                             <input type="text" class="form-control" wire:model="telf">
                         </div>  
-                        <button type="button" class="btn btn-primary" wire:click="guardar">guardar</button>                   
+                        <button type="button" class="btn btn-primary" wire:click="guardar">guardar</button>   
+                        <button type="button" class="btn btn-primary" wire:click="update">actualizar</button>
+                                        
                     </div>
 
                     <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label>Especialidad</label>
-                            <select class="form-control select2" data-bs-toggle="select2" wire:model="id_espe">
-                               @foreach ($s as $item2)
-                                   <option>{{$item2->especialidad}}</option>
+                            <select class="form-control select2" data-bs-toggle="select2" wire:model="id_especialidad">
+                                <option>Select...</option>
+                                @foreach ($s as $item2)
+                                   <option value="{{$item2->id}}">{{$item2->especialidad}}</option>
                                @endforeach                         
                             </select>
                         </div>
@@ -54,5 +60,63 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-12" >
+        <div class="card">
+            <div class="card-body">
      
+                <table id="datatables-reponsive" class="table table-striped" style="width:100%" >
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Cedula</th>
+                            <th>Direccion</th>
+                            <th>Telefono</th>
+                            <th>Tipo</th>
+                            <th>Especialidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($p as $item)
+                        <tr>
+                            <td>
+                               {{$item->id}}
+                            </td>
+                            <td>
+                                {{$item->nom}}
+                            </td>
+                            <td>
+                                {{$item->ape}}
+                            </td>
+                            <td>
+                                {{$item->CI}}
+                            </td>
+                            <td>
+                                {{$item->dir}}
+                            </td>
+                            <td>
+                                {{$item->telf}}
+                            </td>
+                            <td>
+                                {{$item->id_tipo}}
+                            </td>
+                            <td>
+                                {{$item->id_especialidad}}
+                            </td>
+                            <td class="table-action">
+                                
+                                <a ><i class="align-middle fas fa-fw fa-pen" wire:click="edit({{ $item->id }})" style="cursor: pointer "></i></i></a>
+                                <a ><i class="align-middle fas fa-fw fa-trash " wire:click="destroyL({{$item->id}})" style="cursor: pointer "></i></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+    
+            </div>
+        </div>
+        </div>
+        </div>
 </div>

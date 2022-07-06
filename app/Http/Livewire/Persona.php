@@ -15,7 +15,7 @@ class Persona extends Component
         $s=especialidad::where('estado',1)->get();
         $t=tipo::where('estado',1)->get();
         $p=DatosPersona::where('estado',1)->get();
-    return view('livewire.persona', compact('p','t'), compact('s'),/* compact('t')*/ );
+    return view('livewire.persona', compact('p','t','s')/* compact('t')*/ );
     }
      
     public function guardar(){
@@ -36,7 +36,13 @@ class Persona extends Component
     public function edit($id){
         $persona= DatosPersona::find($id);
         $this->_id = $id;
-       // $this->tipos=$tipos->tipo;//mostrar el dato al realizar la busqueda primero ubicamos el nombre del cuadro de texto luego la variable y por ultimo el nombre de la columna
+        $this->nom=$persona->nom;
+        $this->ape=$persona->ape;
+        $this->CI=$persona->CI;
+        $this->dir=$persona->dir;
+        $this->telf=$persona->telf;
+        $this->id_tipo=$persona->id_tipo;
+        $this->id_especialidad=$persona->id_especialidad;
     }
 
     public function update(){
