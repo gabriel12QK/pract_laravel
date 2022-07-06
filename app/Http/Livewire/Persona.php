@@ -9,6 +9,7 @@ use App\Models\especialidad;
 class Persona extends Component
 {
     public $persona,$_id;
+    public $nom,$ape,$CI, $dir,$telf,$id_tipo, $id_especialidad;
     public function render()
     {
         $s=especialidad::where('estado',1)->get();
@@ -18,16 +19,7 @@ class Persona extends Component
     }
      
     public function guardar(){
-        // $persona= new DatosPersona();
-        // $persona->nom=$this->nom;
-        // $persona->ape=$this->ape;
-        // $persona->CI=$this->CI;
-        // $persona->dir=$this->dir;
-        // $persona->telf=$this->telf;
-        // $persona->id_tipo=$this->id_tipo;
-        // $persona->id_especialidad=$this->id_especialidad;
-        // $persona->estado=1;
-        DatosPersona::create([
+        DatosPersona ::create([
             'nom' => $this->nom,
             'ape' => $this->ape,
             'CI' => $this->CI,
