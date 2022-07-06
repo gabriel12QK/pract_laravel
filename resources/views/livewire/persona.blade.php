@@ -9,12 +9,10 @@
                     <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label>Tipos</label>
-                            <select class="form-control select2" data-bs-toggle="select2" wire:model="id_tipo">
+                            <select class="form-control select2" data-bs-toggle="select2" wire:model="id_tipo" style="cursor: pointer ">
                                 <option>Select...</option>
                                 @foreach ($t as $item)
-
                                    <option value="{{$item->id}}">{{$item->tipo}}</option>
-
                                @endforeach                         
                             </select>
                         </div>
@@ -39,7 +37,7 @@
                     <div class="col-12 col-lg-6">
                         <div class="mb-3">
                             <label>Especialidad</label>
-                            <select class="form-control select2" data-bs-toggle="select2" wire:model="id_especialidad">
+                            <select class="form-control select2" data-bs-toggle="select2" wire:model="id_especialidad" style="cursor: pointer ">
                                 <option>Select...</option>
                                 @foreach ($s as $item2)
                                    <option value="{{$item2->id}}">{{$item2->especialidad}}</option>

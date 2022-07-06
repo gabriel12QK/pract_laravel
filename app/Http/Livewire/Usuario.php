@@ -14,10 +14,11 @@ class Usuario extends Component
     }
      
     public function guardar(){
-        $tipos= new tipo();
-        $tipos->tipo=$this->tipos;
-        $tipos->estado=1;
-        $tipos->save();
+      tipo::create([
+        'tipo' => $this->tipos,
+        'estado'=>1,
+    ]);
+    $this->reset();
     }
 
     public function edit($id){

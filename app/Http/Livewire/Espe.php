@@ -14,10 +14,11 @@ class Espe extends Component
     }
      
     public function guardar(){
-        $especi= new especialidad();
-        $especi->especialidad=$this->especi;
-        $especi->estado=1;
-        $especi->save();
+        especialidad::create([
+            'especialidad' => $this->especi,
+            'estado'=>1,
+        ]);
+        $this->reset();
     }
 
     public function edit($id){
