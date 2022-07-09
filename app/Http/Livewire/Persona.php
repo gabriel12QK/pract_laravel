@@ -6,19 +6,56 @@ use Livewire\Component;
 use App\Models\DatosPersona;
 use App\Models\tipo;
 use App\Models\especialidad;
+use Livewire\WithPagination;
 class Persona extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    protected $queryString = ['buscar'];
+
     public $persona,$_id;
     public $nom,$ape,$CI, $dir,$telf,$id_tipo, $id_especialidad;
+    public $button = true;
+    public $buscar;
+
+    protected $rules = [
+        'nom' => 'required',
+        'ape' => 'required',
+        'CI' => 'required|min:10|numeric',
+        'telf' => 'required|min:10',
+        'dir' => 'required',
+        'id_tipo' => 'required',
+        'id_especialidad' => 'required',
+    ];
+
+    protected $messages = [
+        'nom.required' => 'campo requerido',
+        'ape.required' => 'campo requerido',
+        'CI.required' => 'campo requerido',
+        'CI.min' => 'minimo 10 caracteres',
+        'CI.numeric' => 'solo se permiten numeros',
+        'telf.required' => 'campo requerido',
+        'telf.min' => 'minimo 10 caracteres',
+        'dir.required' => 'campo requerido',
+        'id_tipo.required' => 'campo requerido',
+        'id_especialidad.required' => 'campo requerido',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
     public function render()
     {
         $s=especialidad::where('estado',1)->get();
         $t=tipo::where('estado',1)->get();
-        $p=DatosPersona::where('estado',1)->get();
+        $p=DatosPersona::where( 'nom', 'like', '%'.$this->buscar.'%')-> where('estado',1)->paginate(5);
     return view('livewire.persona', compact('p','t','s')/* compact('t')*/ );
     }
      
     public function guardar(){
+        $this->validate();
         DatosPersona ::create([
             'nom' => $this->nom,
             'ape' => $this->ape,
@@ -31,6 +68,7 @@ class Persona extends Component
             
         ]);
         $this->reset();
+        session()->flash('message', 'registro guardado con exito.');
     }
 
     public function edit($id){
@@ -43,6 +81,7 @@ class Persona extends Component
         $this->telf=$persona->telf;
         $this->id_tipo=$persona->id_tipo;
         $this->id_especialidad=$persona->id_especialidad;
+        $this->button = false;
     }
 
     public function update(){

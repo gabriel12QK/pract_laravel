@@ -1,6 +1,7 @@
 
 <div class="justify-content-center">
     <div class="col-6 " >
+        <form wire:submit.prevent="guardar">
         <div class="card ">
             <div class="card-header">
                 <h5 class="card-title">Tipo de Especialidad</h5>
@@ -9,15 +10,31 @@
                    <div class="mb-3">
                         <label class="form-label">Especialidad</label>
                         <input type="text" class="form-control" placeholder="" wire:model="especi">
+                        @error('especi') <span class="error">{{ $message }}</span> @enderror
                    </div>
                
-                   <button type="button" class="btn btn-primary" wire:click="guardar">guardar</button>
-                  
-                   <button type="button" class="btn btn-primary" wire:click="update">actualizar</button>
+                   @if ($button)
+                   <button type="button" class="btn btn-primary" wire:click="guardar">Guardar</button>
+               @else
+                   <button type="button" class="btn btn-primary" wire:click="update">Actualizar</button>
+               @endif
                   
                     
         </div>
     </div>
+</form>
+
+<div class="mb-3">
+    <label>Buscar</label>
+    <input type="text" class="form-control" wire:model="buscar" >
+</div>
+
+@if (session()->has('message'))
+<div class="alert alert-success">
+    {{ session('message') }}
+</div>
+@endif
+
     </div>
     <div class="row justify-content-center">
         <div class="col-10" >
@@ -47,6 +64,7 @@
                             </td>
                         </tr>
                         @endforeach
+                        {{ $s->links() }}
                     </tbody>
                 </table>
     
